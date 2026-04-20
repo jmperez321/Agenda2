@@ -1,4 +1,5 @@
 import java.sql.SQLOutput;
+import java.util.List;
 import java.util.Scanner;
 
 public class Tui {
@@ -58,7 +59,7 @@ public class Tui {
     public int menuActuContact(){
         System.out.println("""
                 
-                Escribe el numero de la opcion deseada:
+                Escribe el numero de la opción deseada:
                 1. Nombre.
                 2. Apellido.
                 3. Telefono.
@@ -74,5 +75,9 @@ public class Tui {
         System.out.println("Cerrando aplicación...");
     }
 
+    public void printAllContact(List<Contacto> agenda){
+        agenda.stream().toList().
+
+    }
 
 }

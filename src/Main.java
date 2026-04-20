@@ -1,9 +1,9 @@
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         Tui t = new Tui();
         Controller ctl = new Controller();
-        boolean encendido = true;
         inicio(ctl, t);
 
     }
@@ -17,6 +17,7 @@ public class Main {
                 gestionCrearContacto(ctl, t);
             } else if (menuOption == 2) {
                 t.menuVerContact();
+
             } else if (menuOption == 3) {
                 gestActuContact(ctl, t);
             } else if (menuOption == 4) {
@@ -39,6 +40,16 @@ public class Main {
         email = t.crearEmail();
         ctrl.crearContacto(nom, apellido, telefono, email);
 
+    }
+    public static void gestionVerContacto(Controller ctrl, Tui t) {
+        int opcionVer = t.menuVerContact();
+        if (opcionVer==1){
+            List<Contacto> agenCon = ctrl.agendaContactos();
+            t.printAllContact(agenCon);
+        } else if(opcionVer==2){
+            int id = t.selectContactById();
+            ctrl.showSelectContact(id);
+        }
     }
 
     public static void gestActuContact(Controller ctrl, Tui t) {
